@@ -2,10 +2,12 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .calculator {
@@ -14,6 +16,7 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 280px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .display {
@@ -23,16 +26,12 @@ body {
     text-align: right;
     font-size: 26px;
     border: none;
-    background-color: #f9f9f9;
-    color: #333; /* Corrigido: o texto ficará visível */
+    background-color: #afafaf;
+    color: #333;
     border-radius: 5px;
     padding: 10px 15px;
     box-sizing: border-box;
-}
-
-.display:disabled {
-    background-color: #f9f9f9;
-    color: #333;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .buttons {
@@ -48,7 +47,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 button:hover {
@@ -57,4 +56,49 @@ button:hover {
 
 button:active {
     background-color: #c8c8c8;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#toggle-theme {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#toggle-theme:hover {
+    background-color: #444;
+}
+
+/* Dark Mode Styles */
+body.dark {
+    background-color: #121212;
+    color: #fff;
+}
+
+.calculator.dark {
+    background-color: #1e1e1e;
+}
+
+.display.dark {
+    background-color: #333;
+    color: #fff;
+}
+
+button.dark {
+    background-color: #333;
+    color: #fff;
+}
+
+button.dark:hover {
+    background-color: #444;
 }
