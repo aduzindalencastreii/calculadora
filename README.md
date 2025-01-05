@@ -12,7 +12,7 @@ The idea is to take a standard calculator and add completely **random and pointl
 ## 🚀 How to Use  
 1. Clone this repository:  
    ```bash  
-   git clone https://github.com/aduzindalencastreii/calculatora.git  
+   git clone https://github.com/aduzindalencastreii/calculadora.git  
    ```  
 2. Open the **index.html** file in your browser.  
 3. Have fun with the randomness!
