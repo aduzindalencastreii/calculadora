@@ -2,14 +2,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const display = document.getElementById('display');
     const themeToggle = document.getElementById('toggle-theme');
 
-    // Dark Mode Toggle
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark');
-        display.classList.toggle('dark');
-        document.querySelectorAll('button').forEach(button => button.classList.toggle('dark'));
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        enableDarkMode();
+    } else {
+        disableDarkMode();
+    }
 
-        themeToggle.textContent = document.body.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
+    themeToggle.addEventListener('click', () => {
+        if (document.body.classList.contains('dark')) {
+            disableDarkMode();
+        } else {
+            enableDarkMode();
+        }
     });
+
+    function enableDarkMode() {
+        document.body.classList.add('dark');
+        display.classList.add('dark');
+        document.querySelectorAll('button').forEach(button => button.classList.add('dark'));
+        themeToggle.textContent = 'Light Mode';
+        localStorage.setItem('darkMode', 'enabled');
+    }
+
+    function disableDarkMode() {
+        document.body.classList.remove('dark');
+        display.classList.remove('dark');
+        document.querySelectorAll('button').forEach(button => button.classList.remove('dark'));
+        themeToggle.textContent = 'Dark Mode';
+        localStorage.setItem('darkMode', 'disabled');
+    }
 
     function appendNumber(number) {
         display.value += number;
@@ -38,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Expondo as funções no escopo global
     window.appendNumber = appendNumber;
     window.appendOperator = appendOperator;
     window.clearDisplay = clearDisplay;
